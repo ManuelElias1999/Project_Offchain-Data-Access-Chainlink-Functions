@@ -1,28 +1,36 @@
-REMIX DEFAULT WORKSPACE
+# Offchain Data Access with Chainlink Functions
 
-Remix default workspace is present when:
-i. Remix loads for the very first time 
-ii. A new workspace is created with 'Default' template
-iii. There are no files existing in the File Explorer
+This repository contains two Solidity smart contracts for accessing offchain data using Chainlink Functions oracles. The contracts allow making HTTP requests to retrieve information from the Star Wars API and the weather API.
 
-This workspace contains 3 directories:
+## Contracts
 
-1. 'contracts': Holds three contracts with increasing levels of complexity.
-2. 'scripts': Contains four typescript files to deploy a contract. It is explained below.
-3. 'tests': Contains one Solidity test file for 'Ballot' contract & one JS test file for 'Storage' contract.
+### 1. GettingStartedFunctionsConsumer.sol
 
-SCRIPTS
+This contract interacts with the Star Wars API through a Chainlink oracle to retrieve information about a character.
 
-The 'scripts' folder has four typescript files which help to deploy the 'Storage' contract using 'web3.js' and 'ethers.js' libraries.
+### 2. WeatherFunctions.sol
 
-For the deployment of any other contract, just update the contract's name from 'Storage' to the desired contract and provide constructor arguments accordingly 
-in the file `deploy_with_ethers.ts` or  `deploy_with_web3.ts`
+This contract interacts with the weather API through a Chainlink oracle to retrieve the current temperature of a city.
 
-In the 'tests' folder there is a script containing Mocha-Chai unit tests for 'Storage' contract.
+## Usage
 
-To run a script, right click on file name in the file explorer and click 'Run'. Remember, Solidity file must already be compiled.
-Output from script will appear in remix terminal.
+### 1. Deploying the Contracts
 
-Please note, require/import is supported in a limited manner for Remix supported modules.
-For now, modules supported by Remix are ethers, web3, swarmgw, chai, multihashes, remix and hardhat only for hardhat.ethers object/plugin.
-For unsupported modules, an error like this will be thrown: '<module_name> module require is not supported by Remix IDE' will be shown.
+Before using the contracts, make sure to deploy them on a compatible network. You can use Truffle or another smart contract development framework for deployment.
+
+### 2. Configuring Requests
+
+Before making data requests, ensure that you configure the necessary parameters such as the address of the Chainlink Functions oracle and the subscription ID.
+
+### 3. Making Requests
+
+Once the contracts are deployed and configured, you can make data requests using the functions provided by the contracts. Make sure to provide the required parameters such as the subscription ID and request arguments.
+
+### 4. Interacting with the Response
+
+Once a response is received from the oracle, you can interact with it through the contracts' interface. This may include reading the response stored in public variables or emitting events with the obtained response.
+
+## Additional Resources
+
+- [Chainlink Functions on Fuji](https://functions.chain.link/fuji): Official page for Chainlink Functions on the Fuji test network. Here, you can find additional information on using Chainlink Functions and obtaining test tokens for making requests.
+
